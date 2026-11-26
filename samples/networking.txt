@@ -1,0 +1,8 @@
+Computer Networks: The Transport Layer
+
+The transport layer provides end-to-end communication between processes running on different hosts. The two main transport protocols on the Internet are TCP and UDP.
+TCP (Transmission Control Protocol) is connection-oriented. Before any data is sent, the client and server complete a three-way handshake using SYN, SYN-ACK and ACK segments. TCP guarantees reliable, in-order delivery by numbering every byte with a sequence number and retransmitting segments that are not acknowledged before a timeout.
+Flow control stops a fast sender from overwhelming a slow receiver. The receiver advertises a receive window, and the sender never has more unacknowledged data in flight than that window allows.
+Congestion control protects the network itself. TCP Reno starts with slow start, doubling its congestion window every round-trip time until packet loss is detected, and then switches to additive increase, multiplicative decrease.
+UDP (User Datagram Protocol) is connectionless and adds little more than port numbers and a checksum to IP. Because it has no handshake and no retransmission, UDP is used for DNS lookups, video calls and online games, where low latency matters more than perfect delivery.
+Port numbers identify the application on each host. Web servers listen on port 80 for HTTP and port 443 for HTTPS. Vint Cerf and Bob Kahn published the original design of TCP in 1974.
